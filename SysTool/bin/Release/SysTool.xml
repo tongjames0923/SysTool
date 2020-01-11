@@ -1,0 +1,360 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SysTool</name>
+    </assembly>
+    <members>
+        <member name="T:SysTool.NET.NetResult">
+            <summary>
+            下载或上传完成时的结果
+            </summary>
+        </member>
+        <member name="T:SysTool.NET.NetArg">
+            <summary>
+            进行下载或上传时待处理的数据类
+            </summary>
+        </member>
+        <member name="T:SysTool.NET.NetDeal">
+            <summary>
+            网络处理
+            </summary>
+        </member>
+        <member name="E:SysTool.NET.NetDeal.OnDownLoad">
+            <summary>
+            下载时的回调
+            </summary>
+        </member>
+        <member name="E:SysTool.NET.NetDeal.OnUpLoad">
+            <summary>
+            上传时的回调
+            </summary>
+        </member>
+        <member name="M:SysTool.NET.NetDeal.#ctor(System.String)">
+            <summary>
+            初始化获取信息
+            </summary>
+            <param name="Ip">FTP服务器ip，无需Ftp://</param>
+        </member>
+        <member name="M:SysTool.NET.NetDeal.#ctor">
+            <summary>
+            初始化
+            </summary>
+        </member>
+        <member name="P:SysTool.NET.NetDeal.FTPName">
+            <summary>
+            Ftp的用户名
+            </summary>
+        </member>
+        <member name="P:SysTool.NET.NetDeal.FTPCode">
+            <summary>
+            Ftp的密码
+            </summary>
+        </member>
+        <member name="M:SysTool.NET.NetDeal.GetFileSize(System.String)">
+            <summary>
+            含参初始化后的获取文件大小的方法
+            </summary>
+            <param name="fileName">需要获取大小的Ftp服务器上的文件名</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.NET.NetDeal.FTPUploadFile(System.String,System.String,System.Int32)">
+            <summary>
+            上传至服务器（需要含参初始化）
+            </summary>
+            <param name="ftpfilename">上传后在服务器端的文件名</param>
+            <param name="localfile">需要上传的本地文件</param>
+            <param name="persize">每一小块文件数据的上传字节大小（小于文件总大小）</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.NET.NetDeal.FTPDownLoadFile(System.String,System.String,System.String,System.IO.FileMode)">
+            <summary>
+            下载至本地（需要含参初始化）
+            </summary>
+            <param name="ftpfilename">需要从服务器上下载的文件名</param>
+            <param name="path">下载至本地的路径</param>
+            <param name="fileName">下载至本地的文件名</param>
+            <param name="mode">文件读写模式</param>
+            <returns></returns>
+        </member>
+        <member name="T:SysTool.FileSystem.FileArg">
+            <summary>
+            IOdeler的删除复制操作的回调参数
+            </summary>
+        </member>
+        <member name="M:SysTool.FileSystem.FileArg.#ctor(System.String[])">
+            <summary>
+            构造函数
+            </summary>
+            <param name="all">所有文件的路径</param>
+        </member>
+        <member name="T:SysTool.FileSystem.FileCounter">
+            <summary>
+            文件计数的数据储存类
+            </summary>
+        </member>
+        <member name="M:SysTool.FileSystem.FileCounter.#ctor(System.String[])">
+            <summary>
+            文件计数的数据类
+            </summary>
+            <param name="pathes"></param>
+        </member>
+        <member name="T:SysTool.FileSystem.PathReturner">
+            <summary>
+            返回路径，提供用户路径选择
+            </summary>
+        </member>
+        <member name="M:SysTool.FileSystem.PathReturner.UserSelectFile(System.String[])">
+            <summary>
+            用户选择单个文件路径
+            </summary>
+            <param name="extension">特定的后缀  ex:".exe"</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.FileSystem.PathReturner.UserSelectFile">
+            <summary>
+            返回用户选择的文件路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.FileSystem.PathReturner.UserSelectFile(System.String[],System.Collections.Generic.List{System.String}@)">
+            <summary>
+            用户选择多个文件路径
+            </summary>
+            <param name="extension">特定的后缀  ex:".exe"</param>
+            <param name="filesInfo">得到的结果将传递至此</param>
+        </member>
+        <member name="M:SysTool.FileSystem.PathReturner.UserSelectFile(System.Collections.Generic.List{System.String}@)">
+            <summary>
+            用户选择多个文件路径
+            </summary>
+            <param name="filesInfo">得到的结果将传递至此</param>
+        </member>
+        <member name="M:SysTool.FileSystem.PathReturner.UserSelectPath(System.String)">
+            <summary>
+            用户选择路径
+            </summary>
+            <param name="description">选择文件夹提示</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.FileSystem.PathReturner.#ctor(System.Reflection.Assembly)">
+            <summary>
+            注入Assembly
+            </summary>
+            <param name="assembly">当前程序的assembly</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.FileSystem.PathReturner.GetPath">
+            <summary>
+            返回当前程序的所在文件夹路径
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.FileSystem.PathReturner.GetFileName">
+            <summary>
+            返回当前程序的文件名
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:SysTool.FileSystem.IoDealer">
+            <summary>
+            处理文件
+            </summary>
+        </member>
+        <member name="M:SysTool.FileSystem.IoDealer.HasFile(System.IO.DirectoryInfo,System.String)">
+            <summary>
+            读取指定文件夹的指定后缀的文件名
+            </summary>
+            <param name="directory">指定文件夹路径</param>
+            <param name="after">后缀名</param>
+            <returns></returns>
+        </member>
+        <member name="E:SysTool.FileSystem.IoDealer.OnDelete">
+            <summary>
+            删除文件时的事件
+            </summary>
+        </member>
+        <member name="E:SysTool.FileSystem.IoDealer.OnCopy">
+            <summary>
+            复制文件时的事件
+            </summary>
+        </member>
+        <member name="T:SysTool.FileSystem.IoDealer.ReturnItem">
+            <summary>
+            想要返回的结果数据
+            </summary>
+        </member>
+        <member name="F:SysTool.FileSystem.IoDealer.ReturnItem.FailToDeleteFile">
+            <summary>
+            删除失败的文件
+            </summary>
+        </member>
+        <member name="F:SysTool.FileSystem.IoDealer.ReturnItem.FailToDeleteFolder">
+            <summary>
+            删除失败的文件夹
+            </summary>
+        </member>
+        <member name="F:SysTool.FileSystem.IoDealer.ReturnItem.All">
+            <summary>
+            删除失败的文件和文件夹
+            </summary>
+        </member>
+        <member name="M:SysTool.FileSystem.IoDealer.DeleteEmptyFolder(System.String,System.Boolean)">
+            <summary>
+            删除空文件夹
+            </summary>
+            <param name="source">目标文件夹</param>
+            <param name="allclean">是否将目标文件夹一块删除</param>
+        </member>
+        <member name="M:SysTool.FileSystem.IoDealer.CountFiles(System.String)">
+            <summary>
+            返回路径下的全部文件数
+            </summary>
+            <param name="path">需要返回文件数的路径</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.FileSystem.IoDealer.DeleteFolder(System.String,SysTool.FileSystem.IoDealer.ReturnItem)">
+            <summary>
+            删除指定文件夹中的所有内容
+            </summary>
+            <param name="SourcePath">需要删除的文件夹路径</param>
+            <param name="returnItem">所需返回的值 all:删除失败的文件夹和文件数  FailToDeleteFile:删除失败的文件 FailToDeleteFolder：删除失败的文件夹</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.FileSystem.IoDealer.CopyDirectory(System.String,System.String,System.Boolean)">
+            <summary>
+            复制文件夹
+            </summary>
+            <param name="SourcePath">需要被复制的路径</param>
+            <param name="DestinationPath">复制到的文件夹</param>
+            <param name="overwriteexisting">true:覆盖现有文件，false：不覆盖现有文件</param>
+            <returns></returns>
+        </member>
+        <member name="T:SysTool.WindowsSystem.ServiceCase">
+            <summary>
+            系统服务处理
+            </summary>
+        </member>
+        <member name="M:SysTool.WindowsSystem.ServiceCase.GetWindowsServiceInstallPath(System.String)">
+            <summary>
+            获取服务的安装路径
+            </summary>
+            <param name="ServiceName">服务名</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.WindowsSystem.ServiceCase.IsServiceExisted(System.String)">
+            <summary>
+            检查服务是否存在
+            </summary>
+            <param name="serviceName">服务名</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.WindowsSystem.ServiceCase.GetServices">
+            <summary>
+            获取服务列表
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.WindowsSystem.ServiceCase.UninstallService(System.String)">
+            <summary>
+            卸载服务
+            </summary>
+            <param name="serviceFilePath">需要卸载的服务路径</param>
+        </member>
+        <member name="M:SysTool.WindowsSystem.ServiceCase.InstallService(System.String)">
+            <summary>
+            安装服务
+            </summary>
+            <param name="serviceFilePath">安装服务名</param>
+        </member>
+        <member name="M:SysTool.WindowsSystem.ServiceCase.ServiceStart(System.String)">
+            <summary>
+            启动服务
+            </summary>
+            <param name="serviceName">服务名</param>
+        </member>
+        <member name="M:SysTool.WindowsSystem.ServiceCase.ServiceStop(System.String)">
+            <summary>
+            停止服务
+            </summary>
+            <param name="serviceName">服务名</param>
+        </member>
+        <member name="T:SysTool.WindowsSystem.RootUser">
+            <summary>
+            检查管理员身份工具
+            </summary>
+        </member>
+        <member name="M:SysTool.WindowsSystem.RootUser.CheckForAdm">
+            <summary>
+            检查当前是否以管理员权限启动
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.WindowsSystem.RootUser.RestartForAdm(System.String)">
+            <summary>
+            请求管理员权限，返回false已是管理员，返回true则已以管理员重启
+            </summary>
+            <param name="path">需要以管理员方式启动的程序路径</param>
+            <returns></returns>
+        </member>
+        <member name="T:SysTool.WindowsSystem.ShortCutTool">
+            <summary>
+            快捷方式工具
+            </summary>
+        </member>
+        <member name="T:SysTool.WindowsSystem.ShortCutTool.To">
+            <summary>
+            创建位置
+            </summary>
+        </member>
+        <member name="F:SysTool.WindowsSystem.ShortCutTool.To.Custom">
+            <summary>
+            自定义
+            </summary>
+        </member>
+        <member name="F:SysTool.WindowsSystem.ShortCutTool.To.DeskTop">
+            <summary>
+            桌面
+            </summary>
+        </member>
+        <member name="F:SysTool.WindowsSystem.ShortCutTool.To.StartUp">
+            <summary>
+            自启动文件夹（用于设置开机自启动）
+            </summary>
+        </member>
+        <member name="F:SysTool.WindowsSystem.ShortCutTool.To.Local">
+            <summary>
+            程序所在位置
+            </summary>
+        </member>
+        <member name="M:SysTool.WindowsSystem.ShortCutTool.CreateShortCut(SysTool.WindowsSystem.ShortCutTool.To,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            创建快捷方式
+            </summary>
+            <param name="to">选择创建的位置</param>
+            <param name="exeFullpath">需要被创建快捷方式的完整路径（包括文件名）</param>
+            <param name="exeDir">需要被创建快捷方式的文件的所在文件夹的路径</param>
+            <param name="lnkName">创建快捷方式的名称</param>
+            <param name="Description">快捷方式的描述</param>
+            <param name="where">尽在to为Customs时生效，可创建在自定义的路径下</param>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.WindowsSystem.ShortCutTool.CreateShortCut(SysTool.WindowsSystem.ShortCutTool.To,System.IO.FileInfo,System.String,System.String,System.String)">
+            <summary>
+            创建快捷方式
+            </summary>
+            <param name="to">选择创建的位置</param>
+            <param name="file">所需创建快捷方式的文件\n ex:  FileInfo files = new FileInfo({{文件路径字符串}}); </param>
+            <param name="lnkName"></param>
+            <param name="Description"></param>
+            <param name="where"></param>
+            <returns></returns>
+        </member>
+        <member name="M:SysTool.WindowsSystem.ShortCutTool.RemoveStartUp(System.String)">
+            <summary>
+            删除启动路径下的文件
+            </summary>
+            <param name="ShortCutName">文件名</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
